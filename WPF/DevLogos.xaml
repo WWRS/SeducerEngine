@@ -1,0 +1,56 @@
+<UserControl x:Class="WPF.DevLogos"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="Black">
+    <Grid Opacity="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*" />
+            <RowDefinition Height="5*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="4*" />
+        </Grid.RowDefinitions>
+        
+        <Image Name="Img"
+               Source="Assets/logo.png"
+               Grid.Column="1"
+               Grid.Row="1"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               RenderOptions.BitmapScalingMode="Fant" />
+        <TextBlock FontFamily="Arial"
+                   Foreground="Silver"
+                   TextAlignment="Center"
+                   RenderTransformOrigin="0.5,0.5"
+                   Grid.Column="1"
+                   Grid.Row="3">
+            <TextBlock.RenderTransform>
+                <ScaleTransform ScaleX="3" ScaleY="3" />
+            </TextBlock.RenderTransform>
+            shamefully presents
+        </TextBlock>
+
+        <Grid.Triggers>
+            <EventTrigger RoutedEvent="Grid.Loaded">
+                <BeginStoryboard>
+                    <Storyboard Duration="0:0:4" Completed="FadeComplete">
+                        <DoubleAnimation
+                            Storyboard.TargetProperty="(Grid.Opacity)" To="0.2"
+                            BeginTime="0:0:0.5" Duration="0:0:0.5" />
+                        <DoubleAnimation
+                            Storyboard.TargetProperty="(Grid.Opacity)" To="1"
+                            BeginTime="0:0:1" Duration="0:0:2" />
+                        <DoubleAnimation
+                            Storyboard.TargetProperty="(Grid.Opacity)" To="0"
+                            BeginTime="0:0:3" Duration="0:0:0.5" />
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Grid.Triggers>
+    </Grid>
+</UserControl>

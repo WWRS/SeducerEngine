@@ -1,0 +1,18 @@
+﻿<Window x:Class="WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="A huge mistake"
+        WindowState="Maximized"
+        WindowStyle="None"
+        KeyDown="OnKeyDownHandler">
+    <Grid Name="MainPanel"
+          Background="Black">
+        
+        <MediaElement Name="VideoMediaElement1"
+                      LoadedBehavior="Play"
+                      MediaEnded="MediaEnded" />
+        <MediaElement Name="VideoMediaElement2"
+                      LoadedBehavior="Play"
+                      MediaEnded="MediaEnded" />
+    </Grid>
+</Window>
