@@ -59,6 +59,9 @@
       <DependentUpon>GameMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="GridEffect.cs" />
+    <Compile Include="LoseScreen.xaml.cs">
+      <DependentUpon>LoseScreen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainResources.cs" />
     <Compile Include="MenuBackground.xaml.cs">
       <DependentUpon>MenuBackground.xaml</DependentUpon>
@@ -78,6 +81,10 @@
     <Page Include="DevLogos.xaml" />
     <Page Include="GameButton.xaml" />
     <Page Include="GameMenu.xaml" />
+    <Page Include="LoseScreen.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainMenu.xaml" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -119,8 +126,26 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="bin\Debug\Assets\grid.ps" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Debug\Assets\Scenarios\Scenario1\1\e.avi" />
+    <Content Include="bin\Debug\Assets\Scenarios\Scenario1\1\l.avi" />
+    <Resource Include="bin\Debug\Assets\Scenarios\Scenario1\1\options.txt" />
+    <Content Include="bin\Debug\Assets\Scenarios\Scenario1\1\w.avi" />
+    <Content Include="bin\Debug\Assets\Scenarios\Scenario1\2\e.avi" />
+    <Content Include="bin\Debug\Assets\Scenarios\Scenario1\2\l.avi" />
+    <Resource Include="bin\Debug\Assets\Scenarios\Scenario1\2\options.txt" />
+    <Content Include="bin\Debug\Assets\Scenarios\Scenario1\2\w.avi" />
+    <Resource Include="bin\Debug\Assets\Scenarios\Scenario1\bg.png" />
+    <Content Include="bin\Debug\Assets\Scenarios\Scenario1\pre.avi" />
+    <Resource Include="bin\Debug\Assets\Scenarios\Scenario1\scenario.txt" />
+    <Resource Include="bin\Debug\Assets\Scenarios\Scenario2\bg.png" />
+    <Content Include="bin\Debug\Assets\Scenarios\Scenario2\pre.avi" />
+    <Resource Include="bin\Debug\Assets\Scenarios\Scenario2\scenario.txt" />
+    <Resource Include="bin\Debug\Assets\Scenarios\Scenario3\bg.png" />
+    <Content Include="bin\Debug\Assets\Scenarios\Scenario3\pre.avi" />
+    <Resource Include="bin\Debug\Assets\Scenarios\Scenario3\scenario.txt" />
     <Content Include="shader\grid.fx" />
     <Content Include="shader\grid.ps" />
     <Resource Include="bin\Debug\Assets\logo.png">
