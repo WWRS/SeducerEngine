@@ -20,8 +20,10 @@ namespace WPF
 
         public GameMenu(string path, int storyPosition, string videoPath)
         {
-            // if we are sent to -1 story position, that's game over
-            if (storyPosition == -1)
+            bool gameOver = MainResources.GetLifePoints() < 0;
+
+            // if we are at -1 story position or no life points, it's game over
+            if (storyPosition == -1 || gameOver)
             {
                 // lost the game, show LoseScreen
                 var lost = new LoseScreen(videoPath);
@@ -105,6 +107,7 @@ namespace WPF
         private void NextVideoStart(object sender, EventArgs e)
         {
             GameMenu nextGameMenu;
+         
             switch (_prevButtonType)
             {
                 case ButtonType.Win:
@@ -113,7 +116,11 @@ namespace WPF
                     MainResources.MainWindow.MainPanel.Children.Remove(this);
                     break;
                 case ButtonType.Lose:
-                    MainResources.MainWindow.PlayFile(_prevVideoPath, PrevVideoDone);
+                    // will still advance to the next video, only a "Lose" button type will reduce the life points
+                    MainResources.ReduceLifePoints(1);
+                    nextGameMenu = new GameMenu(_path, _storyPosition + 1, _prevVideoPath);
+                    MainResources.MainWindow.MainPanel.Children.Add(nextGameMenu);
+                    MainResources.MainWindow.MainPanel.Children.Remove(this);
                     break;
                 case ButtonType.End:
                     nextGameMenu = new GameMenu(_path, -1, _prevVideoPath);

@@ -7,6 +7,7 @@ namespace WPF
     {
         public static MainWindow MainWindow;
         public static List<bool> Scores;
+        private static int _LifePoints = 0;
 
         private static readonly Random Rand = new Random(Guid.NewGuid().GetHashCode());
         
@@ -20,6 +21,21 @@ namespace WPF
                 list[i] = list[j];
                 list[j] = obj;
             }
+        }
+
+        public static void ReduceLifePoints(int amount)
+        {
+            _LifePoints -= amount;
+        }
+
+        public static void SetLifePoints(int amount)
+        {
+            _LifePoints = amount;
+        }
+
+        public static int GetLifePoints()
+        {
+            return _LifePoints;
         }
     }
 }
