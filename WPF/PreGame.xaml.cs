@@ -38,7 +38,7 @@ namespace WPF
         private void PlayButtonClicked(object sender, RoutedEventArgs e)
         {
             MainResources.Scores = new List<bool>();
-            string startingVideo = Path.Combine(_path, "pre.mp4");
+            string startingVideo = Path.Combine(_path, "pre.avi");
             GameMenu gameMenu = new GameMenu(_path, 1, startingVideo);
             MainResources.MainWindow.MainPanel.Children.Add(gameMenu);
             MainResources.MainWindow.MainPanel.Children.Remove(this);

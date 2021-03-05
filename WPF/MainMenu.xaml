@@ -19,12 +19,11 @@
                 Margin="50,-10">
             <TextBlock FontFamily="Arial"
                        Foreground="Silver"
-                       RenderTransformOrigin="0,0.5">
+                       RenderTransformOrigin="0,0.5"
+                       Text="Seducer engine example project">
                 <TextBlock.RenderTransform>
                     <ScaleTransform ScaleX="9" ScaleY="9" />
                 </TextBlock.RenderTransform>
-                HGN<LineBreak />
-                Seducer
             </TextBlock>
         </Border>
 

@@ -20,8 +20,20 @@ namespace WPF
 
         public GameMenu(string path, int storyPosition, string videoPath)
         {
+            // if we are sent to -1 story position, that's game over
+            if (storyPosition == -1)
+            {
+                // lost the game, show LoseScreen
+                var lost = new LoseScreen(videoPath);
+                MainResources.MainWindow.MainPanel.Children.Add(lost);
+                MainResources.MainWindow.MainPanel.Children.Remove(this);
+                return;
+            }
+
+            // if there are no more directories for the scenario, consider it a win
             if (!Directory.Exists(Path.Combine(path, storyPosition.ToString())))
             {
+                // show win screen
                 MainResources.MainWindow.MainPanel.Children.Add(new WinScreen(videoPath));
                 MainResources.MainWindow.MainPanel.Children.Remove(this);
                 return;
@@ -55,7 +67,7 @@ namespace WPF
                 foreach (ButtonType b in Enum.GetValues(typeof(ButtonType)))
                 {
                     string[] paths = Directory.GetFiles(Path.Combine(_path, _storyPosition.ToString()),
-                        b.ToString().ToLower()[0] + "*.mp4");
+                        b.ToString().ToLower()[0] + "*.avi");
                     foreach (string videoPath in paths)
                     {
                         GameButton gameButton = new GameButton(streamReader.ReadLine(), b, videoPath, ButtonClicked);

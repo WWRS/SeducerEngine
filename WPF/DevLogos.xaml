@@ -32,7 +32,7 @@
             <TextBlock.RenderTransform>
                 <ScaleTransform ScaleX="3" ScaleY="3" />
             </TextBlock.RenderTransform>
-            shamefully presents
+            welcome
         </TextBlock>
 
         <Grid.Triggers>
