@@ -5,3 +5,5 @@ obj/
 .idea/
 
 .sln
+WPF/bin/Debug/WPF.exe
+WPF/bin/Debug/WPF.pdb
